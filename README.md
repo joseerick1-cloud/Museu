@@ -183,6 +183,4 @@ Você pode seguir este roteiro simples:
 - uso de CSS para identidade visual
 - estrutura clara para apresentação acadêmica
 
-## 7. Frase curta para usar na apresentação
 
-"Este projeto apresenta um museu digital com páginas temáticas, conteúdo histórico e uma identidade visual inspirada na memória e na cultura."
