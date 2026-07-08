@@ -135,19 +135,16 @@ svg {
 /* Alturas e imagens específicas de cada página */
 .hero-home {
     height: 75vh;
-    background-image: url('https://images.unsplash.com/photo-1706331004467-572aed0d1429?auto=format&fit=crop&q=80&w=1600');
     justify-content: center;
     text-align: center;
 }
 
 .hero-section {
     height: 260px;
-    background-image: url('https://images.unsplash.com/photo-1627559021699-da8385e49488?auto=format&fit=crop&q=80&w=1600');
 }
 
 .hero-exposicao {
     height: 360px;
-    background-image: url('https://images.unsplash.com/photo-1697813586289-77bfd6b056a9?auto=format&fit=crop&q=80&w=1600');
 }
 
 .hero-overlay {
@@ -155,6 +152,17 @@ svg {
     top: 0; left: 0; width: 100%; height: 100%;
     background: linear-gradient(90deg, rgba(14, 22, 29, 0.98) 30%, rgba(14, 22, 29, 0.75) 100%);
     z-index: 1;
+}
+
+/* Imagem de fundo como elemento HTML, coberta e posicionada atrás do conteúdo */
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
 }
 
 .hero-home .hero-overlay {
@@ -347,56 +355,23 @@ svg {
     margin-bottom: 14px;
     border: 1px solid rgba(0, 0, 0, 0.08);
     box-shadow: inset 0 0 30px rgba(0,0,0,0.18), 0 4px 12px rgba(0,0,0,0.05);
-    background-size: cover;
-    background-position: center;
-    /* Aplica tom sépia unificado simulando fotografia física antiga */
-    filter: sepia(0.6) contrast(0.95) brightness(0.9);
-    transition: filter 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
 }
 
-.placeholder-1 {
-    background-image: url('https://images.unsplash.com/photo-1639412852143-fc3bf3fd7234?auto=format&fit=crop&q=80&w=900');
-}
 
-.placeholder-2 {
-    background-image: url('https://unsplash.com/photos/cSsJig5m2Q8/download?force=true&w=900');
-}
 
-.placeholder-3 {
-    background-image: url('https://images.unsplash.com/photo-1616441566058-867bfa0a6cda?auto=format&fit=crop&q=80&w=900');
-}
-
-.placeholder-4 {
-    background-image: url('https://images.unsplash.com/photo-1760307837453-ce60cb209e52?auto=format&fit=crop&q=80&w=900');
-}
-
-.placeholder-5 {
-    background-image: url('https://images.unsplash.com/photo-1741591648875-bb24b8e61505?auto=format&fit=crop&q=80&w=900');
-}
-
-.oral-img-antonio {
-    background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=900');
-}
-
-.placeholder-6 {
-    background-image: url('https://images.unsplash.com/photo-1756655386543-3f463a177fbf?auto=format&fit=crop&q=80&w=900');
-}
-
-.placeholder-7 {
-    background-image: url('https://images.unsplash.com/photo-1509048191080-d2984bad6ae5?auto=format&fit=crop&q=80&w=900');
-}
-
-.placeholder-bridge {
-    background-image: url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=900');
-}
-
-.oral-img-luzia {
-    background-image: url('https://unsplash.com/photos/exSbVjfRXTo/download?force=true&w=900');
-}
-
-.grid-item:hover .img-wrapper {
+.grid-item:hover .img-wrapper img {
     filter: sepia(0.2) contrast(1) brightness(1);
     transform: translateY(-2px);
+}
+
+.img-wrapper img.cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: sepia(0.6) contrast(0.95) brightness(0.9);
+    transition: filter 0.3s ease, transform 0.3s ease;
 }
 
 .grid-item h3 {
@@ -453,26 +428,18 @@ svg {
     background-color: #cbc0a5;
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin-bottom: 12px;
-    background-size: cover;
-    background-position: center;
-    filter: sepia(0.5) contrast(0.95);
     box-shadow: inset 0 0 15px rgba(0,0,0,0.15);
+    overflow: hidden;
 }
 
-.expo-img-1 {
-    background-image: url('https://images.unsplash.com/photo-1697813586289-77bfd6b056a9?auto=format&fit=crop&q=80&w=700');
-}
 
-.expo-img-2 {
-    background-image: url('https://images.unsplash.com/photo-1760307837453-ce60cb209e52?auto=format&fit=crop&q=80&w=700');
-}
 
-.expo-img-3 {
-    background-image: url('https://images.unsplash.com/photo-1664352604245-b556028c7969?auto=format&fit=crop&q=80&w=700');
-}
-
-.expo-img-4 {
-    background-image: url('https://images.unsplash.com/photo-1697813586289-77bfd6b056a9?auto=format&fit=crop&q=80&w=700');
+.mini-img img.cover-img-mini {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: sepia(0.5) contrast(0.95);
 }
 
 .gallery-item h4 {
@@ -562,12 +529,17 @@ svg {
     height: 90px;
     border-radius: 50%;
     background-color: #bbb;
-    background-image: url('https://unsplash.com/photos/exSbVjfRXTo/download?force=true&w=300');
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(1) sepia(0.3);
+    overflow: hidden;
     border: 1px solid var(--gold);
     flex-shrink: 0;
+}
+
+.author-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(1) sepia(0.3);
 }
 
 .testimonial-text p {
@@ -632,11 +604,17 @@ svg {
     width: 100%;
     height: 190px;
     background-color: #cbc0a5;
-    background-size: cover;
-    background-position: center;
-    filter: sepia(0.5) contrast(0.95);
     margin-bottom: 18px;
     border: 1px solid rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.featured-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: sepia(0.5) contrast(0.95);
 }
 
 .card-decorator {
@@ -665,12 +643,9 @@ svg {
 .placeholder-featured {
     width: 100%;
     height: 190px;
-    background-image: url('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?w=600');
-    background-size: cover;
-    background-position: center;
-    filter: sepia(0.5) contrast(0.95);
     margin-bottom: 18px;
     border: 1px solid rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
 /* Links Internos das Caixas Laterais */
@@ -751,10 +726,16 @@ svg {
 
 .placeholder-exhibit {
     height: 380px;
-    background-image: url('https://images.unsplash.com/photo-1639412852143-fc3bf3fd7234?auto=format&fit=crop&q=80&w=1000');
-    background-size: cover;
-    background-position: center;
-    filter: sepia(0.5);
+    overflow: hidden;
+}
+
+.placeholder-exhibit img,
+.placeholder-featured img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: sepia(0.5) contrast(0.95);
 }
 
 .exhibit-text h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; margin-bottom: 15px; }
